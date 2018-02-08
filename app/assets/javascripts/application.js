@@ -13,27 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require websocket_rails/main
-
-$( document ).ready(function() {
-  var dispatcher = new WebSocketRails('localhost:3000/websocket');
-
-  dispatcher.bind('chat.new_message', function(message) {
-    alert(message);
-  });
-
-  dispatcher.bind('chat.user_info', function(user_info) {
-    alert(user_info);
-  });
-
-  dispatcher.bind('user_info', function(user_info) {
-    alert(user_info);
-  });
-
-  $('#send_message').click(function(){
-    console.log('go')
-    message = $("#new_message").val()
-    dispatcher.trigger('chat..incoming_message', message)
-  })
-})
+//= require_tree .
